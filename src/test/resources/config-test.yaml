@@ -1,0 +1,17 @@
+foo:
+  token: "ENC[fooToken]"
+
+bar:
+  auth:
+    url: "https://api.foo.bar/service/test"
+    key: "barKey"
+    secret: "ENC[barSecret]"
+    tokens:
+      - key: "barToken1"
+        secret: "ENC[barTokenSecret1]"
+      - key: "barToken2"
+        secret: "ENC[barTokenSecret2]"
+      - key: "barToken3"
+        secret: "ENC[barTokenSecret3]"
+      - key: "barToken4"
+        secret: "ENC[barTokenSecret4]"
