@@ -1,9 +1,8 @@
 # dropwizard-config-encrypt
 
-This project will decrypt values in your DW config using KMS.
+This Dropwizard plugin will decrypt values in your DW config using KMS.
 
 ## Usage
-
 Import the library into your DW project. Add the decryption bundle or command (only one of both is required) by overriding Application#initialize.
 In both cases a function is required that will get the encryption client from the config.
 
