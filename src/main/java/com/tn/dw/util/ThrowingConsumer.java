@@ -5,15 +5,18 @@ import org.slf4j.LoggerFactory;
 
 import java.util.function.Consumer;
 
+/**
+ * Consumer that rethrows caught exceptions as RuntimeException.
+ */
 @FunctionalInterface
 public interface ThrowingConsumer<T> extends Consumer<T> {
     Logger LOG = LoggerFactory.getLogger(ThrowingConsumer.class);
 
     @Override
-    default void accept(final T elem) {
+    default void accept(T elem) {
         try {
             acceptThrows(elem);
-        } catch (final Exception e) {
+        } catch (Exception e) {
             LOG.error(e.getMessage(), e);
             throw new RuntimeException(e);
         }
