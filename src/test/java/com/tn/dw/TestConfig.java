@@ -15,6 +15,10 @@ class TestConfig extends Configuration {
     @JsonProperty
     private Bar bar;
 
+    @NotNull
+    @JsonProperty
+    private SomeEnum someEnum;
+
     public Foo getFoo() {
         return foo;
     }
@@ -92,5 +96,9 @@ class TestConfig extends Configuration {
         public String getSecret() {
             return secret;
         }
+    }
+
+    public enum SomeEnum {
+        SOME, OTHER;
     }
 }

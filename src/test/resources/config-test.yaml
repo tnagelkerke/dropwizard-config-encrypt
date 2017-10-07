@@ -1,3 +1,5 @@
+someEnum: SOME
+
 foo:
   token: "ENC[fooToken]"
 
