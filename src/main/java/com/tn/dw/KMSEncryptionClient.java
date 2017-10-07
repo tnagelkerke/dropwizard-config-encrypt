@@ -18,9 +18,13 @@ public class KMSEncryptionClient implements EncryptionClient {
     private final AWSKMS awsKmsClient;
     private final String key;
 
-    public KMSEncryptionClient(Regions region, String key) {
-        this.awsKmsClient = AWSKMSClientBuilder.standard().withRegion(region.getName()).build();
+    KMSEncryptionClient(AWSKMS awsKmsClient, String key) {
+        this.awsKmsClient = awsKmsClient;
         this.key = key;
+    }
+
+    public KMSEncryptionClient(Regions region, String key) {
+        this(AWSKMSClientBuilder.standard().withRegion(region.getName()).build(), key);
     }
 
     @Override
