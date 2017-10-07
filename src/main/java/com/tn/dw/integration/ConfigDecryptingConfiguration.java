@@ -10,9 +10,9 @@ import javax.validation.constraints.NotNull;
 public class ConfigDecryptingConfiguration extends Configuration {
     @NotNull
     @JsonProperty
-    private EncryptionClientFactory keyEncryption;
+    private EncryptionClientFactory encryptionClient;
 
     public EncryptionClient getKeyEncryptionClient() {
-        return keyEncryption.build();
+        return encryptionClient.build();
     }
 }
