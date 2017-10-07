@@ -1,6 +1,12 @@
 # dropwizard-config-encrypt
 
-This Dropwizard plugin will decrypt values in your DW config using KMS.
+## What is this plugin?
+This Dropwizard plugin will decrypt values in your DW config using KMS. In the future other ways to decrypt and encrypt values may be added.
+
+When your Dropwizard app starts with this plugin configured, it will look through the configuration to find fields embedded in ENC[encText] 
+and attempt to decrypt those values. After decrypting the values will be replaced with the decrypted values in memory. 
+Do not use this plugin if it's a problem to have readable passwords in memory. In most cases it's enough when plain text 
+passwords are not pushed to VCS.
 
 ## Usage
 Import the library into your DW project. Add the decryption bundle or command (only one of both is required) by overriding Application#initialize.
