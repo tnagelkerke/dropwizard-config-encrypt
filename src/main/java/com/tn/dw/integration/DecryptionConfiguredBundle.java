@@ -10,15 +10,15 @@ import io.dropwizard.setup.Environment;
 import java.util.function.Function;
 
 public class DecryptionConfiguredBundle<T extends Configuration> implements ConfiguredBundle<T> {
-    private final Function<T, EncryptionClient> keyFunc;
+    private final Function<T, EncryptionClient> encClientFunc;
 
-    public DecryptionConfiguredBundle(Function<T, EncryptionClient> keyFunc) {
-        this.keyFunc = keyFunc;
+    public DecryptionConfiguredBundle(Function<T, EncryptionClient> encClientFunc) {
+        this.encClientFunc = encClientFunc;
     }
 
     @Override
     public void run(T configuration, Environment environment) throws Exception {
-        EncryptionClient keyClient = keyFunc.apply(configuration);
+        EncryptionClient keyClient = encClientFunc.apply(configuration);
         ConfigDecrypter decrypter = new ConfigDecrypter(keyClient);
         decrypter.decrypt(configuration);
     }
